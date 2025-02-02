@@ -8,17 +8,6 @@ dbs = {name: init_collection(init_database(create_mongo_client(), "Disaster-Mana
 
 admin = Blueprint('admin', __name__)
 
-@admin.route("/vol-details")
-def vol_details():
-		vol_details = list(dbs["Volunteers"].find({},{"name":1, "age":1, "gender":1, "phone_no":1, "area":1, "pincode":1, "skills":1, "email":1, "sub_admin_email":1, "_id":0}))
-		return render_template("admin/vol_details.html",vol_details=vol_details)
-
-@admin.route("/sub-admin-details")
-def sub_admin_details():
-		sub_admin_details = list(dbs["sub_admin"].find({},{"name":1, "age":1, "gender":1, "phone_no":1, "area":1, "pincode":1, "skills":1, "email":1, "sub_admin_email":1, "_id":0}))
-		return render_template("admin/sub_admin_details.html",sub_admin_details=sub_admin_details)
-
-
 @admin.route("/add-sub-admin", methods=['GET', 'POST'])
 def add_sub_admin():
 	if request.method != "POST":

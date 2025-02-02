@@ -66,13 +66,6 @@ def org_dash():
     return render_template("org/org_dash.html", orgs=orgs)
 
 
-@org.route("/org-dash-2", methods=['GET', 'POST'])
-def org_dash_2():
-    if 'org_email' not in session:
-        flash("You need to login first", category='error')
-        return redirect(url_for("org.org_login"))
-    return render_template("org/org_dash_2.html")
-
 
 @org.route('/org-logout')
 def org_logout():

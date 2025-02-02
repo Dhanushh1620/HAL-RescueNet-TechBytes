@@ -153,6 +153,10 @@ html {
         font-size: 10px;
       }
       
+      .show{
+        left: -100px;
+      }
+      
       #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown.show > .nav-link:after {
         content: '\f107';
       }
